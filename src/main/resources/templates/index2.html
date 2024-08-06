@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yks Sıralama</title>
+    <link rel="stylesheet" href=/css/style.css>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="score-section">
+                <h2>Ders Netleri</h2>
+                <h3 style="display: inline;">Dogru</h3>
+                <h3 style="display: inline;">/Yanlis</h3>
+                <div>
+                    <label for="lesson1">Türkçe: </label>
+                    <input type="number" id="turkce-dogru" min="0" max="40"> / 40
+                    <input type="number" id="turkce-yanlis" min="0" max="40"> /40
+                </div>
+                <div>
+                    <label for="lesson2">Sosyal:</label>
+                    <input type="number" id="sosyal-dogru" min="0" max="20"> / 20
+                    <input type="number" id="sosyal-yanlis" min="0" max="20"> / 20
+                </div>
+                <div>
+                    <label for="lesson3">Matematik:</label>
+                    <input type="number" id="matematik-dogru" min="0" max="40"> / 40
+                    <input type="number" id="matematik-yanlis" min="0" max="40"> / 40
+
+                </div>
+                <div>
+                    <label for="lesson4">Fen:</label>
+                    <input type="number" id="fen-dogru" min="0" max="20"> / 20
+                    <input type="number" id="fen-yanlis" min="0" max="20"> / 20
+                </div>
+
+
+                <div>
+                    <label for="lesson5">AYT Matematik:</label>
+                    <input type="number" id="ayt-matematik-dogru" min="0" max="40"> / 40
+                    <input type="number" id="ayt-matematik-yanlis" min="0" max="40"> / 40
+
+                </div>
+
+
+                <div>
+                    <label for="lesson6">AYT Fen:</label>
+                    <input type="number" id="ayt-fen-dogru" min="0" max="40"> / 40
+                    <input type="number" id="ayt-fen-yanlis" min="0" max="40"> / 40
+
+                </div>
+
+                <div>
+                    <label for="lesson7">Ortalama:</label>
+                    <input type="number" id="obp" min="0" max="100"> / 100
+                </div>
+
+                <div>
+                    <button onclick="calculateTotal()">Calculate Total</button>
+                    <span id="totalScore"></span>
+                </div>
+
+                <div class="department-section">
+                    <h3>Select Departments</h3>
+                    <input type="text" id="departmentSearch" placeholder="Search departments" onkeyup="filterDepartments()">
+                    <select id="departmentSelect" size="5" style="width: 100%;">
+                        <option value="IT">IT</option>
+                        <option value="HR">HR</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Operations">Operations</option>
+                        <option value="Customer Service">Customer Service</option>
+                        <option value="Research and Development">Research and Development</option>
+                    </select>
+                    <button onclick="addDepartment()">Add Department</button>
+                    <div id="selectedDepartments"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="col-lg-2 col-md-6 col-sm-12 py-3">
+            <div class="kanban-col">
+                <h2>2023</h2>
+                <div class="kanban-item-container">
+                    <div class="kanban-item" onclick="toggleContent(this)">
+                        <h3>Title</h3>
+                        <div  th:each="okul:${okullarList}" class="kanban-item-content">
+
+                            <p th:text="${okul.getBolum_adi()}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-12 py-3">
+            <div class="kanban-col">
+                <h2>2022</h2>
+                <div class="kanban-item" onclick="toggleContent(this)">
+                    <h3>Title 1</h3>
+                    <div class="kanban-item-content">
+                        <p>Content for Title 1 in 2022</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-12 py-3">
+            <div class="kanban-col">
+                <h2>2021</h2>
+                <div class="kanban-item" onclick="toggleContent(this)">
+                    <h3>Title 1</h3>
+                    <div class="kanban-item-content">
+                        <p>Content for Title 1 in 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-12 py-3">
+            <div class="kanban-col">
+                <h2>2020</h2>
+                <div class="kanban-item-container">
+                    <div class="kanban-item" onclick="toggleContent(this)">
+                        <h3>Title 1</h3>
+                        <div class="kanban-item-content">
+                            <p>Content for Title 1 in 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/main.js"></script>
+</body>
+</html>
