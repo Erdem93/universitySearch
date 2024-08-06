@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #E7E8D8;
+    
+
+}
+body html{
+    height: 100%;
+}
+
+
+
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.kanban-container{
+    flex: 0 0 1500px;
+    display: flex;
+    overflow-x: auto;
+}
+.kanban-col {
+    background-color: #BC9F8B;
+    border-radius: 10px;
+    padding: 7px;
+    /* margin-right: 10px; */
+    height: 100%;
+    
+}
+.kanban-item {
+    background-color: #E7E8D8;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.kanban-item-content {
+    display: none;
+    margin-top: 10px;
+}
+
+.score-section {
+    flex: 0 0 300px;
+    
+    background-color: #BC9F8B;
+    padding: 20px;
+    border-radius: 10px;
+    height: 100%;
+}
+
+
+.no-margin-row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+input[type="number"] {
+    width: 50px;
+}
+.department-section {
+    margin-top: 20px;
+}
+#selectedDepartments {
+    margin-top: 10px;
+}
+#departmentSearch {
+    width: 100%;
+    margin-bottom: 10px;
+}
