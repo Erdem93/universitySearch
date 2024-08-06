@@ -24,5 +24,9 @@ public class OkulService {
         return Arrays.asList(okulRepository.findByPuan2023GreaterThan(puan).getFirst().getSiralama_2023(),okulRepository.findByPuan2023LessThan(puan).getFirst().getSiralama_2023());
     }
 
+    public List<tum_okullar> getOkullarWithPuan2023(int puan){
+        return okulRepository.findByPuan2023LessThan(puan);
+    }
+
 
 }
