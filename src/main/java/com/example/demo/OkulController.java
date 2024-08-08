@@ -4,6 +4,8 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -29,22 +31,32 @@ public class OkulController {
     @PostMapping("/okullarWithPuan")
 
     public List<tum_okullar> getOkullarWithPuan(@RequestBody PuanRequest puanRequest) {
-        Integer puan=puanRequest.getPuan();
-        return okulService.getOkullarWithPuan2023(puan);
+
+
+
+        int puan = puanRequest.getPuan();
+        Integer year = puanRequest.getYear();
+        String bolum_adi = puanRequest.getBolum_adi_req();
+        System.out.println(year);
+
+        if (year==2023){
+
+            return okulService.getOkullarWithPuan2023(puan,bolum_adi);
+        } else if (year==2022) {
+
+            return okulService.getOkullarWithPuan2022(puan,bolum_adi);
+        } else if (year==2021) {
+
+            return okulService.getOkullarWithPuan2021(puan,bolum_adi);
+        } else if (year==2020) {
+
+            return okulService.getOkullarWithPuan2020(puan,bolum_adi);
+        }
+
+        return Collections.emptyList();
     }
 
-//    public String index(Model model) {
-//
-//        List<tum_okullar> tumokullarList =okulService.getOkullarWithSiralama2023(3000);
-//
-//
-//        System.out.println(siralamaAralik2023);
-//
-//        model.addAttribute("siralamaAralik2023",siralamaAralik2023);
-//        model.addAttribute("okullarList", tumokullarList);
-//        return "index2";
-//
-//    }
+
 
 
 }

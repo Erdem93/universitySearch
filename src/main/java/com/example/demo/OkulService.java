@@ -19,14 +19,26 @@ public class OkulService {
         return okulRepository.findBySiralama2023GreaterThan(siralama);
     }
 
-    public List<Integer> getSiralamaWithPuan2023(int puan){
 
-        return Arrays.asList(okulRepository.findByPuan2023GreaterThan(puan).getFirst().getSiralama_2023(),okulRepository.findByPuan2023LessThan(puan).getFirst().getSiralama_2023());
+
+    public List<tum_okullar> getOkullarWithPuan2023(int puan,String bolum_adi){
+        return okulRepository.findByPuan2023LessThan(puan,bolum_adi);
     }
 
-    public List<tum_okullar> getOkullarWithPuan2023(int puan){
-        return okulRepository.findByPuan2023LessThan(puan);
+    public List<tum_okullar> getOkullarWithPuan2022(int puan,String bolum_adi){
+        return okulRepository.findByPuan2022LessThan(puan,bolum_adi);
     }
+
+    public List<tum_okullar> getOkullarWithPuan2021(int puan,String bolum_adi){
+        return okulRepository.findByPuan2021LessThan(puan,bolum_adi);
+    }
+
+    public List<tum_okullar> getOkullarWithPuan2020(int puan,String bolum_adi){
+        return okulRepository.findByPuan2020LessThan(puan,bolum_adi);
+    }
+
+
+
 
 
 }
