@@ -5,7 +5,6 @@ public class PuanRequest {
     private Integer year;
     private String bolum_adi_req;
 
-    // Getter and Setter
     public Integer getPuan() {
         return puan;
     }

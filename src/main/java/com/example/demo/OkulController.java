@@ -1,10 +1,6 @@
 package com.example.demo;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -16,17 +12,19 @@ public class OkulController {
 
     @GetMapping("/")
     public List<tum_okullar> getTumOkullar(){
-        return okulService.getOkullarWithSiralama2023(580);
+        return okulService.getOkullarWithSiralama2023(50);
     }
 
+
+    @GetMapping("/bolum_isimleri")
+    public List<String> getBolumIsimleri(){
+        return okulService.getAllDepartmants();
+    }
 
     @PostMapping("/okullarWithSiralama")
     public List<tum_okullar> getOkullarWithSiralama(@RequestParam Integer siralama) {
         return okulService.getOkullarWithSiralama2023(siralama);
     }
-
-
-
 
     @PostMapping("/okullarWithPuan")
 
@@ -34,23 +32,21 @@ public class OkulController {
 
 
 
-        int puan = puanRequest.getPuan();
+        int points = puanRequest.getPuan();
         Integer year = puanRequest.getYear();
-        String bolum_adi = puanRequest.getBolum_adi_req();
-        System.out.println(year);
+        String depName = puanRequest.getBolum_adi_req();
 
         if (year==2023){
-
-            return okulService.getOkullarWithPuan2023(puan,bolum_adi);
+            return okulService.getOkullarWithPuan2023(points,depName);
         } else if (year==2022) {
 
-            return okulService.getOkullarWithPuan2022(puan,bolum_adi);
+            return okulService.getOkullarWithPuan2022(points,depName);
         } else if (year==2021) {
 
-            return okulService.getOkullarWithPuan2021(puan,bolum_adi);
+            return okulService.getOkullarWithPuan2021(points,depName);
         } else if (year==2020) {
 
-            return okulService.getOkullarWithPuan2020(puan,bolum_adi);
+            return okulService.getOkullarWithPuan2020(points,depName);
         }
 
         return Collections.emptyList();

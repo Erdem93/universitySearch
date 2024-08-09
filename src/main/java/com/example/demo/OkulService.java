@@ -4,13 +4,13 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class OkulService {
     @Autowired
     private OkulRepository okulRepository;
+
     public List<tum_okullar> getAllItems(){
         return okulRepository.findAll();
     }
@@ -35,6 +35,11 @@ public class OkulService {
 
     public List<tum_okullar> getOkullarWithPuan2020(int puan,String bolum_adi){
         return okulRepository.findByPuan2020LessThan(puan,bolum_adi);
+    }
+
+
+    public List<String> getAllDepartmants(){
+        return okulRepository.findAllDepartmants();
     }
 
 

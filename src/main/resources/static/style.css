@@ -1,11 +1,12 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding-top: 30px;
     background-color: #E7E8D8;
-    
-
 }
+
+
+
 body html{
     height: 100%;
 }
@@ -13,50 +14,57 @@ body html{
 
 
 
-.main-container {
-    display: flex;
-    justify-content: space-between;
+
+
+table{
+    table-layout: fixed;
+    width: 100%;
 }
 
+th,td {
+    border-style: solid;
+    border-color: black;
+    word-wrap: break-word;
+}
+
+
+.univ-head{
+    width: 50%;
+}
+
+
 .kanban-container{
-    flex: 0 0 1500px;
+    align-content: stretch;
+    
     display: flex;
+    flex-wrap: wrap;
     overflow-x: auto;
 }
 .kanban-col {
     background-color: #BC9F8B;
     border-radius: 10px;
-    padding: 7px;
-    /* margin-right: 10px; */
-    height: 100%;
+    padding: 5px;
+    margin: 5px;
+    box-sizing: border-box;
+
     
 }
 .kanban-item {
     background-color: #E7E8D8;
-    border-radius: 15px;
-    padding: 10px;
+    border-radius: 10px;
+    padding: 5px;
     margin-bottom: 10px;
     cursor: pointer;
-    display: block;
 }
 .kanban-item-content {
-    display: block;
+    display: none;
     margin-top: 10px;
 }
 
 .score-section {
-    flex: 0 0 300px;
-    
     background-color: #BC9F8B;
-    padding: 20px;
-    border-radius: 10px;
-    height: 100%;
-}
-
-
-.no-margin-row {
-    margin-left: 0;
-    margin-right: 0;
+    padding: 10px;
+    border-radius: 20px;
 }
 
 
@@ -67,9 +75,9 @@ input[type="number"] {
     margin-top: 20px;
 }
 #selectedDepartments {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 #departmentSearch {
-    width: 100%;
+    
     margin-bottom: 10px;
 }
